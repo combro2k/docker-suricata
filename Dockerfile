@@ -13,7 +13,8 @@ RUN cd /usr/local/src/oisf && \
     LIBS="-lrt -lnuma" ./configure --enable-pfring --prefix=/opt/suricata \
         --with-libpfring-includes=/opt/pf_ring/include \
         --with-libpfring-libraries=/opt/pf_ring/lib --with-libpcap-includes=/opt/pf_ring/include \
-        --with-libpcap-libraries=/opt/pf_ring/lib && \
+        --with-libpcap-libraries=/opt/pf_ring/lib \
+        --enable-nfqueue && \
     make && \
     make install && \
     ldconfig
@@ -32,3 +33,5 @@ RUN sed -i 's|/opt/suricata|/data|g' /data/etc/suricata/suricata.yaml
 
 # Add /opt/suricata/bin to PATH
 ENV PATH /opt/suricata/bin:$PATH
+
+VOLUME /data
