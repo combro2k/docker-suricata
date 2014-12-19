@@ -1,0 +1,3 @@
+#!/bin/bash
+/usr/sbin/oinkmaster -C /etc/oinkmaster.conf -o /data/etc/suricata/rules
+kill -USR2 `/bin/pidof /opt/suricata/bin/suricata`
