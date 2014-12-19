@@ -2,7 +2,7 @@ FROM hurricanelabs/pfring
 
 RUN apt-get update
 
-RUN apt-get install -y python2.7 libnetfilter-queue1 libnetfilter-queue-dev curl
+RUN apt-get install -y python2.7 libnetfilter-queue1 libnetfilter-queue-dev curl cron
 
 RUN cd /usr/local/src && git clone git://phalanx.openinfosecfoundation.org/oisf.git
 RUN cd /usr/local/src/oisf && git clone https://github.com/ironbee/libhtp.git -b 0.5.x
