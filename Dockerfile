@@ -10,6 +10,9 @@ RUN cd /usr/local/src && curl -L "http://downloads.sourceforge.net/project/oinkm
 RUN cd /usr/local/src/oinkmaster-2.0 && cp oinkmaster.pl /usr/sbin/oinkmaster
 
 ADD oinkmaster.conf /data/oinkmaster.conf
+ADD update-rules /data/update-rules
+
+RUN chmod u+x /data/update-rules
 
 # Compile suricata
 RUN cd /usr/local/src/oisf && ./autogen.sh
