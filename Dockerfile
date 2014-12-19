@@ -9,6 +9,8 @@ RUN cd /usr/local/src/oisf && git clone https://github.com/ironbee/libhtp.git -b
 RUN cd /usr/local/src && curl -L "http://downloads.sourceforge.net/project/oinkmaster/oinkmaster/2.0/oinkmaster-2.0.tar.gz" | tar zxv
 RUN cd /usr/local/src/oinkmaster-2.0 && cp oinkmaster.pl /usr/sbin/oinkmaster
 
+ADD oinkmaster.conf /data/oinkmaster.conf
+
 # Compile suricata
 RUN cd /usr/local/src/oisf && ./autogen.sh
 RUN cd /usr/local/src/oisf && \
