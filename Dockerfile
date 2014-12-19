@@ -9,6 +9,9 @@ RUN cd /usr/local/src/oisf && git clone https://github.com/ironbee/libhtp.git -b
 RUN cd /usr/local/src && curl -L "http://downloads.sourceforge.net/project/oinkmaster/oinkmaster/2.0/oinkmaster-2.0.tar.gz" | tar zxv
 RUN cd /usr/local/src/oinkmaster-2.0 && cp oinkmaster.pl /usr/sbin/oinkmaster
 
+# Create /data
+RUN mkdir /data
+
 ADD oinkmaster.conf /data/oinkmaster.conf
 ADD update-rules /data/update-rules
 
@@ -26,9 +29,6 @@ RUN cd /usr/local/src/oisf && \
     make && \
     make install && \
     ldconfig
-
-# Create /data
-RUN mkdir /data
 
 # Install sample configs
 RUN cd /usr/local/src/oisf && \
