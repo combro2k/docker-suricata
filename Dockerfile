@@ -14,6 +14,7 @@ RUN cd /usr/local/src/oisf && \
         --with-libpfring-includes=/opt/pf_ring/include \
         --with-libpfring-libraries=/opt/pf_ring/lib --with-libpcap-includes=/opt/pf_ring/include \
         --with-libpcap-libraries=/opt/pf_ring/lib \
+        --disable-gccmarch-native \
         --enable-nfqueue && \
     make && \
     make install && \
