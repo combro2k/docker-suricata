@@ -2,10 +2,12 @@ FROM hurricanelabs/pfring
 
 RUN apt-get update
 
-RUN apt-get install -y python2.7 libnetfilter-queue1 libnetfilter-queue-dev
+RUN apt-get install -y python2.7 libnetfilter-queue1 libnetfilter-queue-dev curl
 
 RUN cd /usr/local/src && git clone git://phalanx.openinfosecfoundation.org/oisf.git
 RUN cd /usr/local/src/oisf && git clone https://github.com/ironbee/libhtp.git -b 0.5.x
+RUN cd /usr/local/src && curl -L "http://downloads.sourceforge.net/project/oinkmaster/oinkmaster/2.0/oinkmaster-2.0.tar.gz" | tar zxv
+RUN cd /usr/local/src/oinkmaster-2.0 && cp oinkmaster.pl /usr/sbin/oinkmaster
 
 # Compile suricata
 RUN cd /usr/local/src/oisf && ./autogen.sh
