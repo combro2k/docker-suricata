@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Copy etc and var to /data
+if [[ ! -d "/data/etc" ]]
+then
+    cp -r /opt/suricata/etc /data
+    sed -i 's~/opt/suricata~/data~g' /data/etc/suricata/suricata.yaml
+fi
+
+if [[ ! -d "/data/var" ]]
+then
+    cp -r /opt/suricata/var /data
+fi
